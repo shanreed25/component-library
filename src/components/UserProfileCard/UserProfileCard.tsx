@@ -5,20 +5,24 @@ export function UserProfileCard({user, showEmail, showRole, onEdit, children}: U
     return (
         <div className="card">
         <div className="user-card-info">
-             {/*
-                ternary works like if/else inside JSX:
-                condition ? (show this if true) : (show this if false)
-                if the user has a picture, show it
-                if the user has no picture show the first letter of their name in a circle
-            */}
-            {user.avatarUrl ?(
-                <img className="avatar" src={user.avatarUrl} alt="user placeholder image" width={200} height={200} />
-            ): (
-                <div className="avatar letter-avatar" >
-                    {user.name.charAt(0)}
-                </div>
-            )}
-            
+          <div>
+                 {/*
+                    ternary works like if/else inside JSX:
+                    condition ? (show this if true) : (show this if false)
+                    if the user has a picture, show it
+                    if the user has no picture show the first letter of their name in a circle
+                */}
+                {user.avatarUrl ?(
+                    <img className="avatar" src={user.avatarUrl} alt="user placeholder image" width={200} height={200} />
+                ): (
+                    <div className="avatar letter-avatar" >
+                        {user.name.charAt(0)}
+                    </div>
+                )}
+
+                {children && <p className="user-message"><em>{children}</em></p>}
+                
+          </div>
             <div>
                 <h3>{user.name}</h3>
                 <p className="user-email">{user.email}</p>

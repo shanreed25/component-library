@@ -47,16 +47,20 @@ export default function App() {
       <section>
         <h2>User Profile Cards</h2>
         <div className="cards">
+          
+          {/* children is undefined */}
           <UserProfileCard
           user={user1}
           // showEmail={true}
           // showRole={true}
           // onEdit={(userId) => alert(`Editing user ${userId}`)}
-        >
-          <div className="text-sm text-gray-500">Last login: 2 hours ago</div>
-        </UserProfileCard>
+        />
+          
+        
 
-        <UserProfileCard user={user2} />
+        <UserProfileCard user={user2}>
+        <div className="text-sm text-gray-500">Last login: 2 hours ago</div>
+        </UserProfileCard>
         </div>
         
    
