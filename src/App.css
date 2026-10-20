@@ -7,12 +7,12 @@
 section {
   margin-bottom: 24px;
   padding: 16px;
-  background-color: rgb(193, 171, 230);
+  background-color: rgb(234, 229, 243);
   border: 3px solid #080303;
   border-radius: 8px;
   
-  
 }
+
 .alert {
   padding: 15px;
   border-left: 6px solid;
@@ -21,10 +21,27 @@ section {
 
 .alert-header {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.alert-message{
+    font-weight: bolder;
+}
+
+.close-x{
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-weight: bolder;
+}
+
+.alert-body{
+
 }
 
 .alert-error {
-  background-color: #d66161;
+  background-color: #ffaaaa;
   border-color: #db0606;
 }
 
@@ -34,12 +51,12 @@ section {
 }
 
 .alert-warning {
-  background-color: #f7b35c;
+  background-color: #f7c584;
   border-color: #f78d03;
 }
 
 .alert-info {
-  background-color: #4a68cc;
+  background-color: #98adf5;
   border-color: #033cf7;
 }
 

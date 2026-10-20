@@ -19,10 +19,19 @@ export default function App() {
     <section>
       <h2>Alerts</h2>
 
-      {/* children is undefined */}
+      
       <AlertBox type="success" message="Your profile has been updated successfully!">
           <p>You can now continue using the application.</p>
       </AlertBox>
+
+      {/* children is undefined */}
+      <AlertBox type="info" message="You have 4,289 points"/>
+      <AlertBox type="error" message="Something went wrong. Please Try again later."/>
+
+      <AlertBox type="warning" message="Your message will not be saved">
+          <p>Save the message before closing</p>
+      </AlertBox>
+      
     </section>
       
 
