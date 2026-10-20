@@ -1,14 +1,28 @@
 import type { UserProfileCardProps } from "../../types/index"
 
-export function UserProfileCard(props: UserProfileCardProps){
+// destructuring: {user, showEmail, showRole, onEdit, children}
+export function UserProfileCard({user, showEmail, showRole, onEdit, children}: UserProfileCardProps){
     return (
         <>
         <div className="user-card-info">
-            <img src={props.user.avatarUrl} alt="user placeholder image" width={200} height={200} />
+             {/*
+                ternary works like if/else inside JSX:
+                condition ? (show this if true) : (show this if false)
+                if the user has a picture, show it
+                if the user has no picture show the first letter of their name in a circle
+            */}
+            {user.avatarUrl ?(
+                <img className="avatar" src={user.avatarUrl} alt="user placeholder image" width={200} height={200} />
+            ): (
+                <div className="avatar letter-avatar" >
+                    {user.name.charAt(0)}
+                </div>
+            )}
+            
             <div>
-                <h3>{props.user.name}</h3>
-                <p>{props.user.email}</p>
-                <p>{props.user.role}</p>
+                <h3>{user.name}</h3>
+                <p>{user.email}</p>
+                <p>{user.role}</p>
             </div>
         </div>
         <button className="user-card-button">Edit Profile</button>

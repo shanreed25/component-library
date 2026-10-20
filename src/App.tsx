@@ -10,7 +10,7 @@ const user = {
   name: "John Doe",
   email: "john.doe@example.com",
   role: "Software Engineer",
-  avatarUrl: profileImage,
+  // avatarUrl: profileImage,
 };
 
 export default function App() {
