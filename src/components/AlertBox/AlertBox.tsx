@@ -5,7 +5,13 @@ export function AlertBox({type, message, onClose, children}: AlertBoxProps){
         <div className={`alert alert-${type}`}>
         <div className="alert-header">
             <p className="alert-message">{message}</p>
-            <button className="close-x">X</button>
+
+            {/* conditional rendering: this check keeps the button
+            out of the page entirely when onClose is not passed
+            if onClose is passed, show the button
+            if onClose is not passed, show the button
+         */}
+            {onClose && <button className="close-x">X</button>}
         </div>
         {/* conditional rendering: this check keeps the div 
             out of the page entirely when there's nothing to put in it
