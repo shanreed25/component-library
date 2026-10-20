@@ -3,7 +3,7 @@ import type { UserProfileCardProps } from "../../types/index"
 // destructuring: {user, showEmail, showRole, onEdit, children}
 export function UserProfileCard({user, showEmail, showRole, onEdit, children}: UserProfileCardProps){
     return (
-        <>
+        <div className="card">
         <div className="user-card-info">
              {/*
                 ternary works like if/else inside JSX:
@@ -21,11 +21,14 @@ export function UserProfileCard({user, showEmail, showRole, onEdit, children}: U
             
             <div>
                 <h3>{user.name}</h3>
-                <p>{user.email}</p>
-                <p>{user.role}</p>
+                <p className="user-email">{user.email}</p>
+                <p className="user-role">{user.role}</p>
             </div>
         </div>
+
+
+
         <button className="user-card-button">Edit Profile</button>
-        </>
+        </div>
     )
 }

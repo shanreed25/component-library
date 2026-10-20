@@ -60,6 +60,20 @@ section {
   border-color: #033cf7;
 }
 
+.cards{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 100px;
+}
+
+.card{
+  border: 2px solid #6b00c2;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  background-color: #fafafa;
+}
+
 
 
 .avatar{
@@ -84,6 +98,17 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 20px;
+}
+
+.user-email{
+  color: #666;
+}
+
+.user-role{
+  background-color: #e5e7eb;
+  border-radius: 10px;
+  padding: 4px 10px;
 }
 
 .user-card-button {
