@@ -18,7 +18,7 @@ export function AlertBox({type, message, onClose, children}: AlertBoxProps){
             if there are children, wrap them in a div and show it
             if there are no childern, show nothing
          */}
-        {children && <div className="alert-body"><em>{children}</em></div>}
+        {children && <div className="alert-body">{children}</div>}
         </div>
     )
 }

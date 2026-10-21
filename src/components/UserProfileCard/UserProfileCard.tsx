@@ -21,7 +21,7 @@ export function UserProfileCard({user, showEmail, showRole, onEdit, children}: U
                     </div>
                 )}
 
-                {children && <p className="user-message"><em>{children}</em></p>}
+                {children && <p className="user-message">{children}</p>}
                 
           </div>
             <div>

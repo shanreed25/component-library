@@ -1,6 +1,5 @@
 import { AlertBox } from "./components/AlertBox/AlertBox";
 import { UserProfileCard } from "./components/UserProfileCard/UserProfileCard";
-import shannonImg from "./assets/shannon_3d.png"
 import { ProductDisplay } from "./components/ProductDisplay/ProductDisplay";
 import {users} from './data/users'
 
@@ -8,29 +7,15 @@ import "./App.css";
 
 
 
-// const user1 = {
-//   id: "1",
-//   name: "Shannon Reed",
-//   email: "shan.reed@example.com",
-//   role: "Software Engineer",
-//   avatarUrl: shannonImg,
-// };
-
-// const user2 = {
-//   id: "1",
-//   name: "John Doe",
-//   email: "john.doe@example.com",
-//   role: "Project Manager",
-// };
-
 export default function App() {
+  {users.map((user)=> (console.log(user.id.charAt(user.id.length -1))))}
   return (
     <div className="app">
     <section>
       <h2>Alerts</h2>
       <div>
         <AlertBox type="success" message="Your profile has been updated successfully!">
-          <p>You can now continue using the application.</p>
+          <em>You can now continue using the application.</em>
         </AlertBox>
 
         {/* children is undefined */}
@@ -38,7 +23,7 @@ export default function App() {
         <AlertBox type="error" message="Something went wrong. Please Try again later."/>
 
         <AlertBox type="warning" message="Your message will not be saved">
-            <p>Save the message before closing</p>
+            <em>Save the message before closing</em>
         </AlertBox>
       </div>
       
@@ -49,10 +34,18 @@ export default function App() {
 
       <section>
         <h2>User Profile Cards</h2>
+        
         <div className="cards">
           
           {users.map((user)=> (
+            
+            Number(user.id.charAt(user.id.length -1)) % 2 === 0 ? (
               <UserProfileCard user={user} />
+            ) : (
+              <UserProfileCard user={user} >
+                <em>Last Login: {user.id.charAt(user.id.length -1)} hours ago </em>
+              </UserProfileCard>
+            )
 
           ))}
 
