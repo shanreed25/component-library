@@ -1,24 +1,27 @@
 import { AlertBox } from "./components/AlertBox/AlertBox";
 import { UserProfileCard } from "./components/UserProfileCard/UserProfileCard";
 import shannonImg from "./assets/shannon_3d.png"
+import { ProductDisplay } from "./components/ProductDisplay/ProductDisplay";
+import {users} from './data/users'
 
 import "./App.css";
 
 
-const user1 = {
-  id: "1",
-  name: "Shannon Reed",
-  email: "shan.reed@example.com",
-  role: "Software Engineer",
-  avatarUrl: shannonImg,
-};
 
-const user2 = {
-  id: "1",
-  name: "John Doe",
-  email: "john.doe@example.com",
-  role: "Project Manager",
-};
+// const user1 = {
+//   id: "1",
+//   name: "Shannon Reed",
+//   email: "shan.reed@example.com",
+//   role: "Software Engineer",
+//   avatarUrl: shannonImg,
+// };
+
+// const user2 = {
+//   id: "1",
+//   name: "John Doe",
+//   email: "john.doe@example.com",
+//   role: "Project Manager",
+// };
 
 export default function App() {
   return (
@@ -48,22 +51,25 @@ export default function App() {
         <h2>User Profile Cards</h2>
         <div className="cards">
           
-          {/* children is undefined */}
-          <UserProfileCard
-          user={user1}
-          // showEmail={true}
-          // showRole={true}
-          // onEdit={(userId) => alert(`Editing user ${userId}`)}
-        />
+          {users.map((user)=> (
+              <UserProfileCard user={user} />
+
+          ))}
+
+          
           
         
 
-        <UserProfileCard user={user2}>
+        {/* <UserProfileCard user={user2}>
         <div className="text-sm text-gray-500">Last login: 2 hours ago</div>
-        </UserProfileCard>
+        </UserProfileCard> */}
         </div>
         
    
+      </section>
+
+      <section>
+        {/* <ProductDisplay /> */}
       </section>
     </div>
   );

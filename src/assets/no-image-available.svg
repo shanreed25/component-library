@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" role="img" aria-label="No Image Available">
+  <title>No Image Available</title>
+  <g fill="none" stroke="#9ca3af" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Picture frame -->
+    <rect x="130" y="50" width="140" height="110" rx="12" />
+    <!-- Sun -->
+    <circle cx="170" cy="88" r="12" />
+    <!-- Mountains -->
+    <polyline points="138,150 185,110 215,135 235,118 262,150" />
+    <!-- Slash -->
+    <line x1="115" y1="40" x2="285" y2="170" stroke="#ef4444" />
+  </g>
+  <text x="200" y="225" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="bold" fill="#6b7280">No Image Available</text>
+</svg>

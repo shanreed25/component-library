@@ -4,6 +4,7 @@ import type { UserProfileCardProps } from "../../types/index"
 export function UserProfileCard({user, showEmail, showRole, onEdit, children}: UserProfileCardProps){
     return (
         <div className="card">
+
         <div className="user-card-info">
           <div>
                  {/*
@@ -13,7 +14,7 @@ export function UserProfileCard({user, showEmail, showRole, onEdit, children}: U
                     if the user has no picture show the first letter of their name in a circle
                 */}
                 {user.avatarUrl ?(
-                    <img className="avatar" src={user.avatarUrl} alt="user placeholder image" width={200} height={200} />
+                    <img className="avatar" src={user.avatarUrl} alt="user image" width={200} height={200} />
                 ): (
                     <div className="avatar letter-avatar" >
                         {user.name.charAt(0)}
@@ -29,8 +30,6 @@ export function UserProfileCard({user, showEmail, showRole, onEdit, children}: U
                 <p className="user-role">{user.role}</p>
             </div>
         </div>
-
-
 
         <button className="user-card-button">Edit Profile</button>
         </div>
