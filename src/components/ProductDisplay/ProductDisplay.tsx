@@ -1,7 +1,7 @@
 import type { ProductDisplayProps } from "../../types/index"
 import noImageAvailable from '../../assets/no-image-available.svg'
 
-export function ProductDisplay({product, showDescription, showStockStatus=true, onAddToCart, children}: ProductDisplayProps){
+export function ProductDisplay({product, showDescription=true, showStockStatus=true, onAddToCart, children}: ProductDisplayProps){
     return (
         <div className="product-card">
             {product.imageUrl ? (
@@ -12,7 +12,8 @@ export function ProductDisplay({product, showDescription, showStockStatus=true, 
                 }
             <h3>{product.name}</h3>
             <p>${product.price.toFixed(2)}</p>
-            <p className="product-description">{product.description}</p>
+            
+            {showDescription && <p className="product-description">{product.description}</p>}
 
 
             {showStockStatus && (

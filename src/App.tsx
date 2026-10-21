@@ -7,7 +7,7 @@ import { products } from "./data/products";
 import "./App.css";
 
 export default function App() {
-  {products.map((product)=> (console.log(product.imageUrl)))}
+  // {products.map((product)=> (console.log(product.imageUrl)))}
   return (
     <div className="app">
       {/******************** Alert Box Reusable Comeponent Section ********************/}
@@ -60,7 +60,13 @@ export default function App() {
         <h2>Product Cards</h2>
 
        <div className="cards"> 
-        {products.map((product) => <ProductDisplay product={product}/>)}
+        {products.map((product) => 
+          product.inStock === true ? (
+             <ProductDisplay product={product}/>
+          ) :(
+            <ProductDisplay product={product} showDescription={false}/>
+          )
+        )}
        </div>
         
         </section>
