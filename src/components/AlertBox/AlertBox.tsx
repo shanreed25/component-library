@@ -11,7 +11,9 @@ export function AlertBox({type, message, onClose, children}: AlertBoxProps){
             if onClose is passed, show nothing
             if onClose is not passed, show the button
          */}
-            {onClose && <button className="close-x">X</button>}
+            {onClose && <button className="close-x" onClick={onClose}>X</button>}
+            {/* onClose takes no arguments (() => void) so it can be given 
+            to onClick for React to run it when the button is clicked */}
         </div>
         {/* conditional rendering: this check keeps the div 
             out of the page entirely when there's nothing to put in it
