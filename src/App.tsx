@@ -41,9 +41,9 @@ export default function App() {
         <div className="cards">
           {users.map((user) =>
             Number(user.id.charAt(user.id.length - 1)) % 2 === 0 ? (
-              <UserProfileCard user={user} /> //if user id ends in a even number
+              <UserProfileCard user={user} showRole={false}/> //if user id ends in a even number
             ) : (
-              <UserProfileCard user={user}>
+              <UserProfileCard user={user} showEmail={false}>
                 <em>
                   Last Login: {user.id.charAt(user.id.length - 1)} hours
                   ago{" "}

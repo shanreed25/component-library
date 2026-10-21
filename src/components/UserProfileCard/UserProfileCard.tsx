@@ -1,7 +1,7 @@
 import type { UserProfileCardProps } from "../../types/index"
 
 // destructuring: {user, showEmail, showRole, onEdit, children}
-export function UserProfileCard({user, showEmail, showRole, onEdit, children}: UserProfileCardProps){
+export function UserProfileCard({user, showEmail=true, showRole=true, onEdit, children}: UserProfileCardProps){
     return (
         <div className="user-card">
 
@@ -19,16 +19,19 @@ export function UserProfileCard({user, showEmail, showRole, onEdit, children}: U
                     </div>//if the user has no picture show the first letter of their name in a circle
                 )}
 
-                {children && <p className="user-message">{children}</p>}
+                
                 
           </div>
             <div>
                 <h3>{user.name}</h3>
-                <p className="user-email">{user.email}</p>
-                <p className="user-role">{user.role}</p>
+                {/* Only show email and role when they are true */}
+                {showEmail && <p className="user-email">{user.email}</p>}
+                {showRole && <p className="user-role">{user.role}</p>}
             </div>
         </div>
 
+        
+        {children && <p className="user-message">{children}</p>}
         <button className="user-card-button">Edit Profile</button>
         </div>
     )
