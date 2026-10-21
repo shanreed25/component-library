@@ -11,9 +11,14 @@ function closeAlert(type: string) {
   console.log(`User Closed The ${alertType} Alert `);
 }
 
-function handleEdit(userId: string){
+function handleEdit(userId: string) {
   console.log(`Edit user: ${userId}`);
 }
+
+function handleAddToCart(productId: string) {
+  console.log(`Added to cart: ${productId}`);
+}
+
 
 export default function App() {
   // {products.map((product)=> (console.log(product.imageUrl)))}
@@ -60,9 +65,17 @@ export default function App() {
         <div className="cards">
           {users.map((user) =>
             Number(user.id.charAt(user.id.length - 1)) % 2 === 0 ? (
-              <UserProfileCard user={user} showRole={false} onEdit={handleEdit}/> //if user id ends in a even number
+              <UserProfileCard
+                user={user}
+                showRole={false}
+                onEdit={handleEdit}
+              /> //if user id ends in a even number
             ) : (
-              <UserProfileCard user={user} showEmail={false} onEdit={handleEdit}>
+              <UserProfileCard
+                user={user}
+                showEmail={false}
+                onEdit={handleEdit}
+              >
                 <em>
                   Last Login: {user.id.charAt(user.id.length - 1)} hours
                   ago{" "}
@@ -81,9 +94,13 @@ export default function App() {
         <div className="cards">
           {products.map((product) =>
             product.inStock === true ? (
-              <ProductDisplay product={product} />
+              <ProductDisplay product={product} onAddToCart={handleAddToCart} />
             ) : (
-              <ProductDisplay product={product} showDescription={false} />
+              <ProductDisplay
+                product={product}
+                showDescription={false}
+                
+              />
             ),
           )}
         </div>
