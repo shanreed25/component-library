@@ -11,6 +11,10 @@ function closeAlert(type: string) {
   console.log(`User Closed The ${alertType} Alert `);
 }
 
+function handleEdit(userId: string){
+  console.log(`Edit user: ${userId}`);
+}
+
 export default function App() {
   // {products.map((product)=> (console.log(product.imageUrl)))}
   return (
@@ -56,9 +60,9 @@ export default function App() {
         <div className="cards">
           {users.map((user) =>
             Number(user.id.charAt(user.id.length - 1)) % 2 === 0 ? (
-              <UserProfileCard user={user} showRole={false} /> //if user id ends in a even number
+              <UserProfileCard user={user} showRole={false} onEdit={handleEdit}/> //if user id ends in a even number
             ) : (
-              <UserProfileCard user={user} showEmail={false}>
+              <UserProfileCard user={user} showEmail={false} onEdit={handleEdit}>
                 <em>
                   Last Login: {user.id.charAt(user.id.length - 1)} hours
                   ago{" "}
