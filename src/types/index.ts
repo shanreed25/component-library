@@ -1,5 +1,7 @@
 export type AlertType = 'success' | 'error' | 'warning' | 'info';
- 
+
+// shape of the props for the AlertBox component
+// the parent component has to pass props that match it
 export interface AlertBoxProps {
   type: AlertType;
   message: string;
@@ -15,7 +17,9 @@ export interface User {
   role: string;
   avatarUrl?: string;
 }
- 
+
+// shape of the props for the UserProfileCard component
+// the parent component has to pass props that match it
 export interface UserProfileCardProps {
   user: User;
   showEmail?: boolean;
@@ -33,7 +37,9 @@ export interface Product {
   imageUrl?: string;
   inStock: boolean;
 }
- 
+
+// shape of the props for the ProductDisplay component
+// the parent component has to pass props that match it
 export interface ProductDisplayProps {
   product: Product;
   showDescription?: boolean;

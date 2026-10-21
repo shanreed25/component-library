@@ -1,5 +1,8 @@
 import type { UserProfileCardProps } from "../../types/index"
 
+// : UserProfileCardProps part tells TypeScript which interface the props follow
+// //props is an object and I could use `props` but destructuring 
+// makes the properties easier to access
 // destructuring: {user, showEmail, showRole, onEdit, children}
 export function UserProfileCard({user, showEmail=true, showRole=true, onEdit, children}: UserProfileCardProps){
     return (
