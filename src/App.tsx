@@ -34,25 +34,24 @@ export default function App() {
   const [showErrorAlert, setShowErrorAlert] = useState(true);
   const [showWarningAlert, setShowWarningAlert] = useState(true);
 
-
   //*************Products***************************
   //under the hood useState is a generic function, and <string[]>
   //  passes a type argument to it
-  const [cartItems, setCartItems] = useState<string[]>([]);//state for cart
+  const [cartItems, setCartItems] = useState<string[]>([]); //state for cart
 
   //because I want the alert to know which product was added
-  const [addedProduct, setAddedProduct] = useState<Product | null>(null);//state for the last added product
-  
-  const [showAddedToCartAlert, setShowAddedToCartAlert] = useState(false);//state for alert
+  const [addedProduct, setAddedProduct] = useState<Product | null>(null); //state for the last added product
+
+  const [showAddedToCartAlert, setShowAddedToCartAlert] = useState(false); //state for alert
 
   //the handler receives the whole product so I have access to all its properties
   //this way I can add the product name to the alert
   function handleAddToCart(product: Product) {
-  setCartItems(prev => [...prev, product.id]);
-  setAddedProduct(product);
-  setShowAddedToCartAlert(true)
-  console.log(cartItems);
-}
+    setCartItems((prev) => [...prev, product.id]);
+    setAddedProduct(product);
+    setShowAddedToCartAlert(true);
+    console.log(cartItems);
+  }
 
   return (
     <div className="app">
@@ -152,35 +151,39 @@ export default function App() {
       {activeTab === "products" && (
         <section>
           <h2>Product Cards</h2>
-          {showAddedToCartAlert && (
-            <AlertBox
-              type="success"
-              //using addedProduct && because addedProduct may be null
-              message={`${addedProduct && addedProduct.name} Added To Cart`}
-              onClose={() => setShowAddedToCartAlert(false)}
-            >
-              {/* handleAddToCart runs and calls setCartItems so react re-renders 
-                the component and during the new render, cartItems holds the 
-                updated array and return reads the correct cartItems.length */}
-
-              <em>You can now have {cartItems.length} items in your cart</em>
-            </AlertBox>
-          )}
-
           <div className="cards">
-            {products.map((product) =>
-              product.inStock === true ? (
-                <ProductDisplay
-                  product={product}
-                  onAddToCart={() =>handleAddToCart(product)}
-                />
-              ) : (
-                <ProductDisplay product={product} showDescription={false} />
-              ),
-            )}
+            {products.map((product) => (
+              <div className="product-card-container">
+                {product.inStock ? (
+                  <ProductDisplay
+                    product={product}
+                    onAddToCart={() => handleAddToCart(product)}
+                  />
+                ) : (
+                  <ProductDisplay product={product} showDescription={false} />
+                )}
+
+                {showAddedToCartAlert && addedProduct?.id === product.id && (
+                  <div className="product-card-alert">
+                    <AlertBox
+                      type="success"
+                      //using addedProduct && because addedProduct may be null
+                      message={`${addedProduct && addedProduct.name} Added To Cart`}
+                      onClose={() => setShowAddedToCartAlert(false)}
+                    >
+                      {/* handleAddToCart runs and calls setCartItems so react re-renders 
+                  the component and during the new render, cartItems holds the 
+                  updated array and return reads the correct cartItems.length */}
+  
+                      <em>
+                        You can now have {cartItems.length} items in your cart
+                      </em>
+                    </AlertBox>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
-
-
         </section>
       )}
     </div>

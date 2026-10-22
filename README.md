@@ -42,7 +42,7 @@ Two users have no `avatarUrl`: **u004 Noah Williams** and **u008 James Wilson**.
 - [X] Test different prop combinations.
 - [X] Verify that components render correctly with various props.
 ### Component Composition
-- [ ] Create example usage of components working together.
+- [X] Create example usage of components working together.
 - [ ] Demonstrate prop passing between components.
 - [ ] Show how to handle component nesting.
 ### Documentation
