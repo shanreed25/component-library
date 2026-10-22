@@ -113,3 +113,14 @@ Two users have no `avatarUrl`: **u004 Noah Williams** and **u008 James Wilson**.
 |Pass `showStockStatus={false}` to a `ProductDisplay` in `App.tsx`|The In Stock / Out Of Stock label disappears|
 
 **p005 USB-C Charging Hub** has no `imageUrl` and a price of `39.99999`, so it checks both the image fallback and the price formatting. **p003** and **p008** are out of stock.
+
+## Reflection Questions
+### How did you handle optional props in your components?
+> Optional props are marked with `?` in each interface, and they are handled differently be cause they do different things
+- `showEmail`, `showRole`, `showDescription`, and `showStockStatus` are given defaults of `true` when they are destructured in the component
+- Product and User profile cards shows everything unless the parent sets it to false
+- The parent only has to pass the prop when it wants the non-default behavior `false`
+
+### What considerations did you make when designing the component interfaces?
+### How did you ensure type safety across your components?
+### What challenges did you face when implementing component composition?
