@@ -117,9 +117,22 @@ Two users have no `avatarUrl`: **u004 Noah Williams** and **u008 James Wilson**.
 ## Reflection Questions
 ### How did you handle optional props in your components?
 > Optional props are marked with `?` in each interface, and they are handled differently be cause they do different things
+
+##### Default Values
 - `showEmail`, `showRole`, `showDescription`, and `showStockStatus` are given defaults of `true` when they are destructured in the component
 - Product and User profile cards shows everything unless the parent sets it to false
 - The parent only has to pass the prop when it wants the non-default behavior `false`
+
+##### Conditional Rendering
+- `children` and `onClose` uses conditional rendering
+- `AlertBox` uses `onClose && <button>` so the `X` button only appears when the parent passes the `OnClose` prop
+- `children && <div className="alert-body">` is used because without it a empty `div` is added to the page even when there are no childern
+
+#### Callback Optional Properties Chaining
+- `onEdit` and `onAddToCart` are called with `onEdit?.(user.id)` and `onAddToCart?.(product.id)`
+    - `?.` is a optional chaining operator, and if it comes right before `(`, it will call the function only if it exists
+- `onClick={onEdit(user.id)}` or `onClick={onAddToCart(user.id)}` would call `onEdit` or `onAddToCart` when the card renders, not on click
+
 
 ### What considerations did you make when designing the component interfaces?
 ### How did you ensure type safety across your components?
