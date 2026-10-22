@@ -50,7 +50,7 @@ export default function App() {
     setCartItems((prev) => [...prev, product.id]);
     setAddedProduct(product);
     setShowAddedToCartAlert(true);
-    console.log(cartItems);
+    // console.log(cartItems);//prints the cart list before the new item is added
   }
 
   return (
@@ -92,14 +92,12 @@ export default function App() {
               <AlertBox
                 type="info"
                 message="You have 4,289 points"
-                onClose={() => setShowInfoAlert(false)}
               />
             )}
             {showErrorAlert && (
               <AlertBox
                 type="error"
                 message="Something went wrong. Please Try again later."
-                onClose={() => setShowErrorAlert(false)}
               />
             )}
 
@@ -183,7 +181,7 @@ export default function App() {
                   updated array and return reads the correct cartItems.length */}
   
                       <em>
-                        You can now have {cartItems.length} items in your cart
+                        You now have {cartItems.length} items in your cart
                       </em>
                     </AlertBox>
                   </div>

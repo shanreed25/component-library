@@ -45,7 +45,7 @@ export function ProductDisplay({
           className="product-card-button"
           onClick={() =>
             console.log(
-              `You will be notified when ${product.name}is back in stock`,
+              `You will be notified when ${product.name} is back in stock`,
             )
           }
         >
