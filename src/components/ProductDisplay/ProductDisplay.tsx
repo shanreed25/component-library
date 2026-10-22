@@ -64,6 +64,7 @@ export function ProductDisplay({
           Add To Cart
         </button>
       )}
+      {children}
     </div>
   );
 }

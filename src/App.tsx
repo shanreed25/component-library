@@ -158,13 +158,8 @@ export default function App() {
                   <ProductDisplay
                     product={product}
                     onAddToCart={() => handleAddToCart(product)}
-                  />
-                ) : (
-                  <ProductDisplay product={product} showDescription={false} />
-                )}
-
-
-                {/* 
+                  >
+                                    {/* 
                      when the add to cart button is clicked the component re-renders 
                      and the check runs with the new addedProduct
                      
@@ -193,6 +188,14 @@ export default function App() {
                     </AlertBox>
                   </div>
                 )}
+
+                  </ProductDisplay>
+                ) : (
+                  <ProductDisplay product={product} showDescription={false} />
+                )}
+
+
+
               </div>
             ))}
           </div>
