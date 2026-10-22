@@ -4,6 +4,33 @@
   padding: 24px 16px;
 }
 
+/********Tabs************/
+.tabs {
+  display: flex;
+  gap: 3px;
+  border-bottom: 2px solid #080303;
+  padding: 0 10px;
+}
+
+.tab{
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.tab:hover{
+  color:#6b00c2;
+  background-color: #00c210;
+}
+
+.tab:active{
+  color:#000000;
+  background-color: #062bfc;
+}
+
+
+
+
 section {
   margin-bottom: 24px;
   padding: 16px;

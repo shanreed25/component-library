@@ -21,6 +21,8 @@ function handleAddToCart(productId: string) {
 export default function App() {
   const [activeTab, setActiveTab] = useState("alerts");
 
+  //keeps each tab’s id and label in one place, so adding 
+  // a tab needs a new object here
   const tabs = [
   {id: "alerts", label: "Alerts"},
   {id: "users", label: "User Profile Cards"},
@@ -28,6 +30,7 @@ export default function App() {
 
 ]
 
+console.log(activeTab);
 
   //need useState to remove the alert from the page 
   const [showSuccessAlert, setShowSuccessAlert] = useState(true)
@@ -41,9 +44,15 @@ export default function App() {
  
   return (
     <div className="app">
-      <nav>
+      <nav className="tabs">
+        {/* Creates a button for each tab, that calls setActiveTab with its own id */}
         {tabs.map((tab) => (
-          <button>{tab.label}</button>
+          <button className="tab"
+          type="button" 
+          onClick={() => setActiveTab(tab.id)}
+          >
+            {tab.label}
+            </button>
         ) )}
       </nav>
 
@@ -51,6 +60,7 @@ export default function App() {
 
 
       {/******************** Alert Box Reusable Comeponent Section ********************/}
+      {activeTab === "alerts" && 
       <section>
         <h2>Alerts</h2>
         <div>
@@ -82,9 +92,10 @@ export default function App() {
             <em>Save the message before closing</em>
           </AlertBox>}
         </div>
-      </section>
+      </section>}
 
       {/******************** User Profile Card Reusable Comeponent Section ********************/}
+      {activeTab === "users" && 
       <section>
         <h2>User Profile Cards</h2>
 
@@ -110,11 +121,11 @@ export default function App() {
             ),
           )}
         </div>
-      </section>
+      </section>}
 
       {/******************** Product Card Reusable Comeponent Section ********************/}
 
-      <section>
+     {activeTab === "products" &&  <section>
         <h2>Product Cards</h2>
 
         <div className="cards">
@@ -130,7 +141,7 @@ export default function App() {
             ),
           )}
         </div>
-      </section>
+      </section>}
     </div>
   );
 }
