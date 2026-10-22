@@ -69,8 +69,6 @@ src/
 - **Nesting:** the `AlertBox` is passed as `children` of the `ProductDisplay` it belongs to, so it renders inside that card
 - The alert only renders on the card whose `product.id` matches `addedProduct.id`, so only one card shows it at a time. Its X button sets `showAddedToCartAlert` back to `false`
 
-
-
 ### Props Usage
 - [X] Document any special prop handling or requirements.
 
@@ -80,3 +78,38 @@ src/
 - `App.tsx` passes each component data through props
 - Each component uses those props to decide what to show on the page, mainly through conditional rendering
 - Shape of the props is defined in `types/index.ts`
+
+
+## Component Testing
+- [X] Test different prop combinations.
+- [X] Verify that components render correctly with various props.
+
+### users.ts
+> This file exports `users`, an array of 8 `User` objects, which are defined in the `User` interface. Below are some values you can change to check specific branches of the component logic
+
+|Change|What you should see|
+|---|---|
+|Remove `avatarUrl` from u001|A letter avatar with "A"|
+|Remove `avatarUrl` from u001 and set `name: "ava martinez"` (lowercase)|The letter avatar still shows "A" and the heading shows "Ava Martinez", because `capName` capitalizes each word|
+|`name: ""`|An empty circle and a blank heading|
+|`id: "u010"`|The even branch, since the last character is `0`|
+|`id: "u00a"`|The **odd** branch, showing "Last Login: a hours ago". `Number("a")` is `NaN`, and `NaN % 2 === 0` is false|
+|A very long `email`|Shows whether the text overflows the card|
+
+The `"u010"` and `"u00a"` cases show that the even/odd logic only looks at the **last character** of the id. Ids like `"u012"` and `"u002"` are both treated as even, and a last login of "2 hours ago" comes from the id rather than real data.
+
+Two users have no `avatarUrl`: **u004 Noah Williams** and **u008 James Wilson**. You can use them to check how `UserProfileCard` looks when there's no avatar. u004's name is stored as `"noah Williams"` to check that `capName` works.
+
+### products.ts
+> This file exports `products`, an array of 8 `Product` objects, which are defined in the `Product` interface
+
+|Change|What you should see|
+|---|---|
+|Remove `imageUrl` from p001|The no-image-available placeholder|
+|`inStock: false` on p001|"Out Of Stock", no description, and the Get Back In Stock Notification button|
+|`price: 5`|`$5.00`|
+|Click Add To Cart on the same product twice|The alert stays on that card and the item count goes up|
+|Click Add To Cart on a different product|The alert moves to the new card|
+|Pass `showStockStatus={false}` to a `ProductDisplay` in `App.tsx`|The In Stock / Out Of Stock label disappears|
+
+**p005 USB-C Charging Hub** has no `imageUrl` and a price of `39.99999`, so it checks both the image fallback and the price formatting. **p003** and **p008** are out of stock.
