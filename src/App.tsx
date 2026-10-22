@@ -163,6 +163,18 @@ export default function App() {
                   <ProductDisplay product={product} showDescription={false} />
                 )}
 
+
+                {/* 
+                     when the add to cart button is clicked the component re-renders 
+                     and the check runs with the new addedProduct
+                     
+                    showAddedToCartAlert
+                      is the alert supposed to be visible at all, if false, nothing renders
+                    addedProduct?.id === product.id 
+                      is the product that was just added, the product the .map() loop is 
+                      currently working on, if not, stop nothing renders
+                    both checks must pass, only then will the alert render
+                    */}
                 {showAddedToCartAlert && addedProduct?.id === product.id && (
                   <div className="product-card-alert">
                     <AlertBox
