@@ -47,7 +47,11 @@ console.log(activeTab);
       <nav className="tabs">
         {/* Creates a button for each tab, that calls setActiveTab with its own id */}
         {tabs.map((tab) => (
-          <button className="tab"
+          //each item rendered from .map() so it can tell the items apart between renders
+          //this code works with or without the key because this is a fixed list of three 
+          // buttons that never changes
+          <button key={tab.id}
+          className={tab.id === activeTab ? "tab active": "tab"}
           type="button" 
           onClick={() => setActiveTab(tab.id)}
           >

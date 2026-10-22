@@ -1,6 +1,6 @@
 .app {
-  /* max-width: 1500px;
-  margin: 0 auto; */
+  max-width: 1500px;
+  margin: 0 auto;
   padding: 24px 16px;
 }
 
@@ -8,14 +8,19 @@
 .tabs {
   display: flex;
   gap: 3px;
-  border-bottom: 2px solid #080303;
+  /* border-bottom: 2px solid #080303; */
   padding: 0 10px;
+  margin-bottom: 10px;
+
 }
 
 .tab{
-  border: none;
+  border-bottom: 3px solid transparent;
+  border-radius: 5px;
   background: none;
   cursor: pointer;
+  background-color: #b1b0b0;
+  padding: 10px;
 }
 
 .tab:hover{
@@ -23,9 +28,9 @@
   background-color: #00c210;
 }
 
-.tab:active{
+.tab.active{
   color:#000000;
-  background-color: #062bfc;
+  background-color: #b0bbf7;
 }
 
 
