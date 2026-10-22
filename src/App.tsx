@@ -3,6 +3,7 @@ import { UserProfileCard } from "./components/UserProfileCard/UserProfileCard";
 import { ProductDisplay } from "./components/ProductDisplay/ProductDisplay";
 import { users } from "./data/users";
 import { products } from "./data/products";
+import { useState } from "react";
 
 import "./App.css";
 
@@ -21,40 +22,45 @@ function handleAddToCart(productId: string) {
 
 
 export default function App() {
-  // {products.map((product)=> (console.log(product.imageUrl)))}
+  //need useState to remove the alert from the page 
+  const [showSuccessAlert, setShowSuccessAlert] = useState(true)
+  const [showInfoAlert, setShowInfoAlert] = useState(true)
+  const [showErrorAlert, setShowErrorAlert] = useState(true)
+  const [showWarningAlert, setShowWarningAlert] = useState(true)
+ 
   return (
     <div className="app">
       {/******************** Alert Box Reusable Comeponent Section ********************/}
       <section>
         <h2>Alerts</h2>
         <div>
-          <AlertBox
+         { showSuccessAlert && <AlertBox
             type="success"
             message="Your profile has been updated successfully!"
-            onClose={() => closeAlert("success")}
+            onClose={() => setShowSuccessAlert(false)}
           >
             <em>You can now continue using the application.</em>
-          </AlertBox>
+          </AlertBox>}
 
           {/* children is undefined */}
-          <AlertBox
+          {showInfoAlert && <AlertBox
             type="info"
             message="You have 4,289 points"
-            onClose={() => closeAlert("Info")}
-          />
-          <AlertBox
+            onClose={() => setShowInfoAlert(false)}
+          />}
+          {showErrorAlert && <AlertBox
             type="error"
             message="Something went wrong. Please Try again later."
-            onClose={() => closeAlert("Error")}
-          />
+            onClose={() => setShowErrorAlert(false)}
+          />}
 
-          <AlertBox
+          {showWarningAlert && <AlertBox
             type="warning"
             message="Your message will not be saved"
-            onClose={() => closeAlert("Warning")}
+            onClose={() => setShowWarningAlert(false)}
           >
             <em>Save the message before closing</em>
-          </AlertBox>
+          </AlertBox>}
         </div>
       </section>
 
