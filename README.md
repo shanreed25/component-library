@@ -54,3 +54,29 @@ src/
 - The price is formatted with `toFixed(2)`, so `39.99999` displays as `$40.00`
 - In-stock products show an `Add To Cart` button
 - Out-of-stock products show a `Get Back In Stock Notification` button that logs a message to the console
+
+
+## Component Composition
+- [X] Create example usage of components working together.
+- [X] Demonstrate prop passing between components.
+- [X] Show how to handle component nesting.
+
+> The Products tab shows all three ideas from the Component Composition tasks in one place
+
+- **Prop passing:** `App` passes `onAddToCart={() => handleAddToCart(product)}` to each in-stock `ProductDisplay`
+- When Add To Cart is clicked, `handleAddToCart` updates three pieces of state in `App`: `cartItems`, `addedProduct`, and `showAddedToCartAlert`
+- React re-renders, and `App` passes the added product's name down to an `AlertBox` as its `message`, and `cartItems.length` inside it as children
+- **Nesting:** the `AlertBox` is passed as `children` of the `ProductDisplay` it belongs to, so it renders inside that card
+- The alert only renders on the card whose `product.id` matches `addedProduct.id`, so only one card shows it at a time. Its X button sets `showAddedToCartAlert` back to `false`
+
+
+
+### Props Usage
+- [X] Document any special prop handling or requirements.
+
+> The data only flows one way, from App down into the components, and a component never changes its own props
+- `App.tsx` is the parent
+- `App.tsx` renders the `AlertBox`, `UserProfileCard`, and `ProductDisplay` components
+- `App.tsx` passes each component data through props
+- Each component uses those props to decide what to show on the page, mainly through conditional rendering
+- Shape of the props is defined in `types/index.ts`
