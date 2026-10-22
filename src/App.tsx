@@ -86,15 +86,12 @@ export default function App() {
             )}
 
             {/* children is undefined */}
-              <AlertBox
-                type="info"
-                message="You have 4,289 points"
-              />
+            <AlertBox type="info" message="You have 4,289 points" />
 
-              <AlertBox
-                type="error"
-                message="Something went wrong. Please Try again later."
-              />
+            <AlertBox
+              type="error"
+              message="Something went wrong. Please Try again later."
+            />
 
             {showWarningAlert && (
               <AlertBox
@@ -152,7 +149,7 @@ export default function App() {
                     product={product}
                     onAddToCart={() => handleAddToCart(product)}
                   >
-                                    {/* 
+                    {/* 
                      when the add to cart button is clicked the component re-renders 
                      and the check runs with the new addedProduct
                      
@@ -163,32 +160,32 @@ export default function App() {
                       currently working on, if not, stop nothing renders
                     both checks must pass, only then will the alert render
                     */}
-                {showAddedToCartAlert && addedProduct?.id === product.id && (
-                  <div className="product-card-alert">
-                    <AlertBox
-                      type="success"
-                      //using addedProduct && because addedProduct may be null
-                      message={`${addedProduct && addedProduct.name} Added To Cart`}
-                      onClose={() => setShowAddedToCartAlert(false)}
-                    >
-                      {/* handleAddToCart runs and calls setCartItems so react re-renders 
+                    {showAddedToCartAlert &&
+                      addedProduct?.id === product.id && (
+                        <div className="product-card-alert">
+                          <AlertBox
+                            type="success"
+                            //using addedProduct && because addedProduct may be null
+                            message={`${addedProduct && addedProduct.name} Added To Cart`}
+                            onClose={() => setShowAddedToCartAlert(false)}
+                          >
+                            {/* handleAddToCart runs and calls setCartItems so react re-renders 
                   the component and during the new render, cartItems holds the 
                   updated array and return reads the correct cartItems.length */}
-  
-                      <em>
-                        You now have {cartItems.length} items in your cart
-                      </em>
-                    </AlertBox>
-                  </div>
-                )}
 
+                            <em>
+                              You now have {cartItems.length} items in your cart
+                            </em>
+                          </AlertBox>
+                        </div>
+                      )}
                   </ProductDisplay>
                 ) : (
-                  <ProductDisplay product={product} showDescription={false} />
+                  <ProductDisplay
+                    product={product}
+                    showDescription={false}
+                  />
                 )}
-
-
-
               </div>
             ))}
           </div>

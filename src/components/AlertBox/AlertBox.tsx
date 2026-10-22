@@ -8,8 +8,8 @@ export function AlertBox({type, message, onClose, children}: AlertBoxProps){
 
             {/* conditional rendering: this check keeps the button
             out of the page entirely when onClose is not passed
-            if onClose is passed, show nothing
-            if onClose is not passed, show the button
+            if onClose is passed,  show the button
+            if onClose is not passed, show nothing
          */}
             {onClose && <button className="close-x" onClick={onClose}>X</button>}
             {/* onClose takes no arguments (() => void) so it can be given 
