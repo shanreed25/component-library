@@ -30,8 +30,6 @@ export default function App() {
   //*************Alerts***************************
   //need useState to remove the alert from the page
   const [showSuccessAlert, setShowSuccessAlert] = useState(true);
-  const [showInfoAlert, setShowInfoAlert] = useState(true);
-  const [showErrorAlert, setShowErrorAlert] = useState(true);
   const [showWarningAlert, setShowWarningAlert] = useState(true);
 
   //*************Products***************************
@@ -88,18 +86,15 @@ export default function App() {
             )}
 
             {/* children is undefined */}
-            {showInfoAlert && (
               <AlertBox
                 type="info"
                 message="You have 4,289 points"
               />
-            )}
-            {showErrorAlert && (
+
               <AlertBox
                 type="error"
                 message="Something went wrong. Please Try again later."
               />
-            )}
 
             {showWarningAlert && (
               <AlertBox
