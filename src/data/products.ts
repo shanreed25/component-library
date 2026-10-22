@@ -36,7 +36,7 @@ export const products: Product[] = [
   {
     id: "p005",
     name: "USB-C Charging Hub",
-    price: 39.99,
+    price: 39.99999,
     description: "7-in-1 hub with HDMI, SD card reader, and 100W power delivery.",
     inStock: true,
   },

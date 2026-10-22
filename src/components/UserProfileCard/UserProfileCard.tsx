@@ -11,6 +11,10 @@ export function UserProfileCard({
   onEdit,
   children,
 }: UserProfileCardProps) {
+  function capName(name: string){//capitalize each word in a name like "lisa jones" so it becomes "Lisa Jones"
+    return name.toLowerCase().replace(/\b\w/g, letter => letter.toUpperCase());
+  }
+
   return (
     <div className="user-card">
       <div className="user-card-info">
@@ -28,11 +32,11 @@ export function UserProfileCard({
               height={200}
             /> //if the user has a picture, show it
           ) : (
-            <div className="avatar letter-avatar">{user.name.charAt(0)}</div> //if the user has no picture show the first letter of their name in a circle
+            <div className="avatar letter-avatar">{capName(user.name.charAt(0))}</div> //if the user has no picture show the first letter of their name in a circle
           )}
         </div>
         <div>
-          <h3>{user.name}</h3>
+          <h3>{capName(user.name)}</h3>
           {/* Only show email and role when they are true */}
           {showEmail && <p className="user-email">{user.email}</p>}
           {showRole && <p className="user-role">{user.role}</p>}
