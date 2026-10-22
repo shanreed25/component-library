@@ -7,10 +7,7 @@ import { useState } from "react";
 
 import "./App.css";
 
-function closeAlert(type: string) {
-  const alertType = type.charAt(0).toUpperCase() + type.slice(1);
-  console.log(`User Closed The ${alertType} Alert `);
-}
+
 
 function handleEdit(userId: string) {
   console.log(`Edit user: ${userId}`);
@@ -22,14 +19,37 @@ function handleAddToCart(productId: string) {
 
 
 export default function App() {
+  const [activeTab, setActiveTab] = useState("alerts");
+
+  const tabs = [
+  {id: "alerts", label: "Alerts"},
+  {id: "users", label: "User Profile Cards"},
+  {id: "products", label: "Products Cards"}
+
+]
+
+
   //need useState to remove the alert from the page 
   const [showSuccessAlert, setShowSuccessAlert] = useState(true)
   const [showInfoAlert, setShowInfoAlert] = useState(true)
   const [showErrorAlert, setShowErrorAlert] = useState(true)
   const [showWarningAlert, setShowWarningAlert] = useState(true)
+
+  //under the hood useState is a generic function, and <string[]>
+  //  passes a type argument to it
+  // const [cartItems, setCartItems] = useState<string[]>([]);
  
   return (
     <div className="app">
+      <nav>
+        {tabs.map((tab) => (
+          <button>{tab.label}</button>
+        ) )}
+      </nav>
+
+
+
+
       {/******************** Alert Box Reusable Comeponent Section ********************/}
       <section>
         <h2>Alerts</h2>
